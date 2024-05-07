@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [redirecting, setRedirecting] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className='App'>
+      {redirecting && <p>redirecting...</p>}
+      {!redirecting && (
+        <button
+          onClick={async () => {
+            setRedirecting(true);
+            setTimeout(
+              () => (window.location.href = 'https://finverse.com'),
+              3000
+            );
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Click to redirect
+        </button>
+      )}
     </div>
   );
 }
