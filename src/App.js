@@ -11,7 +11,7 @@ function App() {
           onClick={async () => {
             setRedirecting(true);
             setTimeout(
-              () => (window.location.href = 'https://finverse.com'),
+              () => (window.location.href = 'https://example.com'),
               3000
             );
           }}
